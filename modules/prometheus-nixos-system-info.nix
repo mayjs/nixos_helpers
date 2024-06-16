@@ -35,7 +35,7 @@ in {
       type = types.anything;
     };
     prometheus-text-exporter-directory = mkOption {
-      type = types.string;
+      type = types.str;
       default = "/var/lib/prometheus-node-exporter-text-files";
     };
   };
