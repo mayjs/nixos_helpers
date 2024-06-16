@@ -1,3 +1,15 @@
+# This module can be used to expose NixOS system metadata to Prometheus.
+# It requires the system to be built via flakes.
+# In your flake.nix, add this to your NixOS system call:
+# mayutils.nixosModules.prometheus-nixos-system-info # Import the mayutils Prometheus NixOS system module
+# {
+#   monitoring.prometheus-nixos-system-info = {
+#     enable = true;
+#     system-flake = self;
+#   };
+# }
+# The system-flake attribute will be used to derive the age of the nixpkgs input age.
+
 {
   lib,
   config,
