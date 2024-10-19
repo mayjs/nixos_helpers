@@ -9,7 +9,6 @@
 #   };
 # }
 # The system-flake attribute will be used to derive the age of the nixpkgs input age.
-
 {
   lib,
   config,
