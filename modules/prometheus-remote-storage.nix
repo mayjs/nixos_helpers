@@ -33,8 +33,8 @@ in {
       wantedBy = ["multi-user.target"];
       serviceConfig = {
         Type = "simple";
-        User = "prometheus_remote_storage_adapter";
-        Group = "prometheus_remote_storage_adapter";
+        User = "prom_remote_storage_adapter";
+        Group = "prom_remote_storage_adapter";
         DynamicUser = true;
 
         ExecStart = let
