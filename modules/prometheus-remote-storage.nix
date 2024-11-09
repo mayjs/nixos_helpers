@@ -36,12 +36,13 @@ in {
         User = "prom_remote_storage_adapter";
         Group = "prom_remote_storage_adapter";
         DynamicUser = true;
+        LoadCredential = "influxpw:${cfg.influxdb-pwfile}";
 
         ExecStart = let
           prometheus_remote_storage_adapter_wrapped = pkgs.writeShellApplication {
             name = "prometheus_remote_storage_adapter_wrapped";
             text = ''
-              INFLUXDB_PW=$(cat "${cfg.influxdb-pwfile}")
+              INFLUXDB_PW=$(cat "''${CREDENTIALS_DIRECTORY}/influxpw")
               export INFLUXDB_PW
               ${cfg.prometheus_remote_storage_adapter_pkg}/bin/prometheus_remote_storage_adapter \
               --influxdb-url="${cfg.influxdb-url}" \
