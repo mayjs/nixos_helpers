@@ -56,7 +56,7 @@ in {
 
     services.prometheus.remoteWrite = [
       {
-        url = "http://127.0.0.1:9201";
+        url = "http://127.0.0.1:9201/write";
       }
     ];
   };
